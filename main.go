@@ -67,7 +67,6 @@ var WebDriver selenium.WebDriver
 
 func main() {
 	loadArgs()
-	readAccount()
 	// Start Service
 
 	caps := selenium.Capabilities{"browserName": BrowserName}
@@ -117,6 +116,7 @@ func main() {
 	status := Status()
 	switch Operation {
 	case "login":
+		readAccount()
 		if status {
 			log.Println("already login, logout now...")
 			Logout()
