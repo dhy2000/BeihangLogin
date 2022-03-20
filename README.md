@@ -1,6 +1,6 @@
 # Beihang Login
 
-Yet another beihang login based on `selenium` and your web browser.
+Yet another (not very stable) beihang login based on `selenium` and your web browser.
 
 **Note**: Only chrome is supported now. There are still some bugs with firefox.
 
