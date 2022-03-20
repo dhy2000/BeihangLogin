@@ -128,8 +128,10 @@ func main() {
 		WaitRefresh()
 		if Status() {
 			fmt.Println("登录成功")
+			os.Exit(0)
 		} else {
 			fmt.Println("登录失败")
+			os.Exit(1)
 		}
 	case "status":
 		if status {
@@ -139,8 +141,9 @@ func main() {
 		}
 	case "logout":
 		if status {
-			log.Println("already login, logout now...")
 			Logout()
+			fmt.Println("注销成功")
+			os.Exit(0)
 		}
 	default:
 		log.Fatalln("Wrong operation type: expected login | status | logout.")
