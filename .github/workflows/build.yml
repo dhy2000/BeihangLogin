@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.17
-      - name: Go Mod Downlaod
+      - name: Go Mod Download
         run: go mod download
       - name: Go Build
         run: go build -o beihang-login
@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.17
-      - name: Go Mod Downlaod
+      - name: Go Mod Download
         run: go mod download
       - name: Go Build
         run: go build -o beihang-login.exe
@@ -50,7 +50,7 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.17
-      - name: Go Mod Downlaod
+      - name: Go Mod Download
         run: go mod download
       - name: Go Build
         run: go build -o beihang-login
