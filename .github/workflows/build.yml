@@ -1,0 +1,61 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_linux:
+    name: Build Go for Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Go Mod Downlaod
+        run: go mod download
+      - name: Go Build
+        run: go build -o beihang-login
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: beihang-login-linux
+          path: beihang-login
+  build_win:
+    name: Build Go for Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Go Mod Downlaod
+        run: go mod download
+      - name: Go Build
+        run: go build -o beihang-login.exe
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: beihang-login-windows
+          path: beihang-login.exe
+  build_darwin:
+    name: Build Go for MacOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Go Mod Downlaod
+        run: go mod download
+      - name: Go Build
+        run: go build -o beihang-login
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: beihang-login-darwin
+          path: beihang-login
