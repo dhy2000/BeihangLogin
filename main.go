@@ -89,7 +89,7 @@ func main() {
 		log.Fatalln("Wrong driver type: expected 'chrome' or 'firefox'")
 	}
 	defer func(DriverService *selenium.Service) {
-		Handle(DriverService.Stop())
+		_ = DriverService.Stop()
 	}(DriverService)
 
 	// Start WebDriver
@@ -98,7 +98,7 @@ func main() {
 		log.Fatalln(err)
 	} else {
 		defer func(WebDriver selenium.WebDriver) {
-			Handle(WebDriver.Close())
+			_ = WebDriver.Close()
 		}(WebDriver)
 	}
 
