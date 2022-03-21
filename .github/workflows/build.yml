@@ -17,7 +17,11 @@ jobs:
       - name: Go Mod Download
         run: go mod download
       - name: Go Build
-        run: go build -o beihang-login
+        run: go build -o beihang-login -ldflags="-s -w"
+      - name: Setup upx
+        run: sudo apt install -y upx
+      - name: Compress binary
+        run: upx -9 beihang-login
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -35,7 +39,7 @@ jobs:
       - name: Go Mod Download
         run: go mod download
       - name: Go Build
-        run: go build -o beihang-login.exe
+        run: go build -o beihang-login.exe -ldflags="-s -w"
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -53,7 +57,11 @@ jobs:
       - name: Go Mod Download
         run: go mod download
       - name: Go Build
-        run: go build -o beihang-login
+        run: go build -o beihang-login -ldflags="-s -w"
+      - name: Setup upx
+        run: brew install upx
+      - name: Compress binary
+        run: upx -9 beihang-login
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
